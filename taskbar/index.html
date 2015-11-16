@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Frameless Window</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body ng-app="taskbar">
+
+  <div ng-controller="taskbar-controller">
+    <md-content>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-button ng-click="settings()" aria-label="Settings">
+            Settings
+          </md-button>
+          <h2>
+            <span>Paper-DE</span>
+          </h2>
+          <span flex></span>
+          <md-button ng-click="openTerminal()" aria-label="Terminal">
+            Open Terminal
+          </md-button>
+          <md-button ng-click="openDevTools()" aria-label="Dev Tools">
+            Open Developer Tools
+          </md-button>
+        </div>
+      </md-toolbar>
+
+    </md-content>
+  </div>
+
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-aria/angular-aria.js"></script>
+  <script src="./bower_components/angular-animate/angular-animate.js"></script>
+  <script src="./bower_components/angular-material/angular-material.js"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>

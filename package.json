@@ -1,0 +1,18 @@
+{
+  "name": "paper-de",
+  "version": "0.0.1",
+  "description": "a desktop environment implementing material design",
+  "repository": "https://github.com/USU-grassRoots/paper-de.git",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Samuel Christensen",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-prebuilt": "^0.34.0"
+  },
+  "dependencies": {
+    "diskdb": "^0.1.14"
+  }
+}
