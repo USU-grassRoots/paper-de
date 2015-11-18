@@ -9,10 +9,8 @@ Installation:
 ====
 to try the taskbar:
 
-git clone https://github.com/USU-grassRoots/paper-de/paper-de.git
-
+git clone https://github.com/USU-grassRoots/paper-de/
 cd ./paper-de
-
 npm install && npm start
 
 
