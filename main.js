@@ -18,7 +18,11 @@ app.on('window-all-closed', function() {
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({x:0, y:0, width: 1366, height: 64, frame:false});
+
+  var electronScreen = require('screen');;
+  var size = electronScreen.getPrimaryDisplay().workAreaSize;
+
+  mainWindow = new BrowserWindow({x:0, y:0, type: "dock", resizeable: "false", skipTaskbar: "true", width: size.width, height: 64, frame:false});
 
   // and load the index.html of the app.
   mainWindow.loadUrl('file://' + __dirname + '/taskbar/index.html');
