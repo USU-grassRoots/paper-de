@@ -13,6 +13,7 @@
     "electron-prebuilt": "^0.34.0"
   },
   "dependencies": {
-    "diskdb": "^0.1.14"
+    "diskdb": "^0.1.14",
+    "node-battery": "~0.2.2"
   }
 }

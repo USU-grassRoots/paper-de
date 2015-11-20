@@ -34,9 +34,12 @@
           <md-button ng-click="openDevTools()" aria-label="Dev Tools">
             Open Developer Tools
           </md-button>
+          <span>{{currenttime.getHours()%12}}:{{currenttime.getMinutes() < 10 ? "0" + currenttime.getMinutes() : currenttime.getMinutes() }}</span>
+          <span style="margin-right:5px">{{currenttime.getHours()/12 < 1 ? "am" : "pm" }}</span>
+          <span ng-if="pluggedin">Charging:{{batterylevel}}%</span>
+          <span ng-if="!pluggedin">On Battery:{{batterylevel}}%</span>
         </div>
       </md-toolbar>
-
     </md-content>
   </div>
 

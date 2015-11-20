@@ -6,6 +6,32 @@ angular.module('taskbar', ['ngMaterial'])
   })
   .controller("taskbar-controller", function($scope) {
 
+    var nodeBattery = require("node-battery");
+
+    nodeBattery.getBatteries(function(data){
+        // Linux only
+        // "data" Is an array containing paths to the battery files
+    });
+
+    $scope.batterylevel = "...";
+    $scope.currenttime = new Date(Date());
+
+    $scope.updateinfo = function() {
+      nodeBattery.isCharging(function(pluggedin){
+        nodeBattery.percentages(function(data){
+          $scope.$apply(function() {
+              $scope.batterylevel = data[0];
+              $scope.pluggedin = pluggedin[0];
+              $scope.currenttime = new Date(Date());
+              console.log(pluggedin);
+          });
+        });
+      });
+    }
+
+    setInterval(function(){$scope.updateinfo()}, 5000);
+    $scope.updateinfo();
+
     $scope.openDevTools = function() {
       var remote = require('remote');
       var browser = remote.getCurrentWindow();
