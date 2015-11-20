@@ -15,10 +15,15 @@ angular.module('taskbar', ['ngMaterial'])
 
     $scope.openTerminal = function() {
       var exec = require("child_process").exec;
-      exec('xterm');
+      exec('x-terminal-emulator');
     };
 
     $scope.settings = function() {
-      alert('hello world');
+      // alert('hello world');
+      // window.open('http://www.google.com', 'settings');
+      var remote = require('remote');
+      remote.getGlobal('opensettings')();
+
+
     }
   });

@@ -1,6 +1,11 @@
 var app = require('app');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
+global.opensettings = function(){
+  var settingsWindow = new BrowserWindow({});
+  settingsWindow.loadUrl('file://' + __dirname + '/taskbar/settings.html');
+}
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow = null;
@@ -12,6 +17,10 @@ app.on('window-all-closed', function() {
   if (process.platform != 'darwin') {
     app.quit();
   }
+});
+
+app.on('new-window', function() {
+    app.quit();
 });
 
 // This method will be called when Electron has finished
@@ -36,5 +45,28 @@ app.on('ready', function() {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+  });
+  mainWindow.webContents.on('new-window', function(event, url, frameName, disposition, options){
+    // console.log('new window', event, url, frameName, disposition, options);
+    // options.skipTaskbar = 'false';
+    options.y = 64;
+    options.resizeable = true;
+    options.frame = true;
+    options.width = size.width;
+    options.height = size.height;
+    // url = 'file://' + __dirname + '/taskbar/index.html';
+    // options.type = 'desktop';
+    console.log(event.sender);
+    //event.sender.loadUrl('file://' + __dirname + '/taskbar/settings.html');
+    // options.type = 'desktop';
+
+    // { x: 0,
+    //     y: 0,
+    //     type: 'dock',
+    //     resizeable: 'false',
+    //     skipTaskbar: 'true',
+    //     width: 1280,
+    //     height: 64,
+    //     frame: false }
   });
 });
