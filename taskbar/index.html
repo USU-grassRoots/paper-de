@@ -28,8 +28,8 @@
             <span>Paper-DE</span>
           </h2>
           <span flex></span>
-          <md-button ng-click="openTerminal()" aria-label="Terminal">
-            Open Terminal
+          <md-button ng-repeat="shortcut in shortcuts" ng-click="exec(shortcut.command)" aria-label="shortcut.name">
+            {{shortcut.name}}
           </md-button>
           <md-button ng-click="openDevTools()" aria-label="Dev Tools">
             Open Developer Tools

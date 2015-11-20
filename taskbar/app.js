@@ -7,11 +7,26 @@ angular.module('taskbar', ['ngMaterial'])
   .controller("taskbar-controller", function($scope) {
 
     var nodeBattery = require("node-battery");
+    // nodeBattery.getBatteries(function(data){
+    //     // Linux only
+    //     // "data" Is an array containing paths to the battery files
+    // });
 
-    nodeBattery.getBatteries(function(data){
-        // Linux only
-        // "data" Is an array containing paths to the battery files
-    });
+    try {
+      $scope.shortcuts = require('./shortcuts.json');
+    } catch (e) {
+      alert('Shortcuts file is missing or corrupted. Adding a default terminal shortcut.')
+      $scope.shortcuts = [{
+        name: "Terminal",
+        command: "x-terminal-emulator"
+      }];
+    } finally {
+
+    }
+
+    // console.log(require('shortcuts.json'));
+
+    $scope.exec = require("child_process").exec;
 
     $scope.batterylevel = "...";
     $scope.currenttime = new Date(Date());
@@ -23,7 +38,6 @@ angular.module('taskbar', ['ngMaterial'])
               $scope.batterylevel = data[0];
               $scope.pluggedin = pluggedin[0];
               $scope.currenttime = new Date(Date());
-              console.log(pluggedin);
           });
         });
       });
