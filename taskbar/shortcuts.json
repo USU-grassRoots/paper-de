@@ -1,0 +1,4 @@
+[
+  {"name":"Terminal","command":"x-terminal-emulator"},
+  {"name":"Chrome","command":"google-chrome"}
+]
