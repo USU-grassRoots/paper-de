@@ -1,10 +1,4 @@
-#!/bin/bash
-
-echo "Updating repos and base packages..."
-sudo pacman -Syu --noconfirm > /dev/null
-
-echo "Installing node.js and npm..."
-sudo pacman -S --noconfirm nodejs npm > /dev/null
-
-echo "Installing nvm..."
-runuser -l vagrant -c 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash' > /dev/null
+command -v openbox >/dev/null 2>&1 || { echo "openbox is not installed. You may want that." >&2; exit 1; }
+echo "openbox available, adding to autostart"
+echo "$PWD/node_modules/electron-prebuilt/dist/electron $PWD/main.js &" > ~/.config/openbox/autostart
+echo "Success! logout and log back into openbox session to try it out."

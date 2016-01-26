@@ -5,7 +5,8 @@
   "repository": "https://github.com/USU-grassRoots/paper-de.git",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "postinstall": "bash setup.sh"
   },
   "author": "Samuel Christensen",
   "license": "MIT",

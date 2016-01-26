@@ -49,7 +49,7 @@ app.on('ready', function() {
   mainWindow.webContents.on('new-window', function(event, url, frameName, disposition, options){
     // console.log('new window', event, url, frameName, disposition, options);
     // options.skipTaskbar = 'false';
-    options.y = 64;
+    options.y = 24;
     options.resizeable = true;
     options.frame = true;
     options.width = size.width;

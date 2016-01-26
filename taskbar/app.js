@@ -50,7 +50,7 @@ angular.module('taskbar', ['ngMaterial'])
       var remote = require('remote');
       var browser = remote.getCurrentWindow();
       browser.openDevTools();
-      // browser.devToolsWebContents.executeJavaScript('document.getElementsByClassName("long-click-glyph")[0].click()')
+      browser.devToolsWebContents.executeJavaScript('document.getElementsByClassName("long-click-glyph")[0].click()')
     }
 
     $scope.openTerminal = function() {
@@ -63,7 +63,6 @@ angular.module('taskbar', ['ngMaterial'])
       // window.open('http://www.google.com', 'settings');
       var remote = require('remote');
       remote.getGlobal('opensettings')();
-
 
     }
   });
